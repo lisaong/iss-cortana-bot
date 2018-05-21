@@ -25,7 +25,7 @@ server.post('/api/messages', connector.listen());
 var bot = new builder.UniversalBot(connector, function (session) {
     // Redirect to help if the user's utterance is not recognized
     // session.replaceDialog('HelpDialog');
-    session.replaceDialog('CourseDialog');
+    session.replaceDialog('CoursesDialog');
 });
 
 /**
@@ -75,10 +75,10 @@ bot.dialog('CoursesDialog', function (session) {
             .buttons([
                 builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--essential-practices-for-agile-teams/agile", "Find out more"),
             ])
-        ]
+    ];
 
     var msg = new builder.Message(session)
-        .speak(speak(session, prompt, ['agile']))
+        .speak(speak(session, 'courses_ssml', ['agile']))
         .attachmentLayout(builder.AttachmentLayout.carousel)
         .attachments(cards)
         .inputHint(builder.InputHint.acceptingInput);
