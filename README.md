@@ -113,6 +113,30 @@ Testing the bot:
 
 #### B. Adding the Cortana channel
 
-https://docs.microsoft.com/en-us/cortana/skills/get-started
+1. From the Bot Channels Registration page on Azure Portal, click on `Channels`
+2. Add the `Cortana` channel. 
+3. For `Invocation name`, use `ISS`. Cortana will recognize it when a user says "I-S-S"
+4. For `Request user profile data`, select `User.SemanticLocation.Current`
+5. For `Discovery and Management`, register the Cortana Skill with Knowledge Store.
+6. Once you're done, you can then launch Cortana.
+    - Make sure your Windows is logged on to the same login account that was used for Azure Portal. This is needed until the Cortana Skill is published.
+    - Configure your microphone, following the prompts.
+    - Click on the Cortana microphone button.
+    - Say `Ask ISS help` to launch the help dialog.
 
-https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-cortana?view=azure-bot-service-3.0
+References:
+- https://docs.microsoft.com/en-us/cortana/skills/get-started
+- https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-cortana?view=azure-bot-service-3.0
+
+## Debugging the Cortana Skill
+
+To debug locally, use `ngrok` to tunnel your local endpoint to an external HTTPS URL.
+
+1. Download [ngrok](https://ngrok.com/) (Free registration)
+2. Configure the endpoint and note down the ngrok.io URL.
+```
+ngrok http 3978 -host-header="localhost:3978"
+```
+3. On Azure Portal, update `Bot Channels Registration` to use the ngrok.io URL. Something like `https://0d6c4024.ngrok.io/api/messages`
+4. Now requests to the Cortana channel will redirect to your localhost Node.js instance.
+
