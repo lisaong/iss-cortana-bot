@@ -65,4 +65,4 @@ The bot should now be available at https://your_app_name.azurewebsites.net/api/m
 
 7. Create a Bot Channels Registration To use the bot for chats, we'll need to add a Bot Channel for it.
 
-Follow instructions here: https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-3.0
+Follow instructions here: https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration
