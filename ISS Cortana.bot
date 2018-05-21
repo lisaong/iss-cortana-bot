@@ -1,0 +1,15 @@
+{
+    "name": "ISS Cortana",
+    "description": "",
+    "secretKey": "9643f940a950ab91a4d0a1f4940c3239224daa123b86df7865a4a3eed054fcefa0e243b944630c4189ee82768387b1fd",
+    "services": [
+        {
+            "appId": "",
+            "id": "f03193a0-5c9a-11e8-b1bc-37ec3f688c1b",
+            "type": "endpoint",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "name": "http://localhost:3978/api/messages"
+        }
+    ]
+}
