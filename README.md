@@ -1,6 +1,8 @@
 # ISS Cortana Bot
 Simple Cortana bot in Node.js for Institute of Systems Science, National University of Singapore
 
+![bot](assets/bot-connection.svg)
+
 [![Build Status](https://travis-ci.com/lisaong/iss-cortana-bot.svg?branch=master)](https://travis-ci.com/lisaong/iss-cortana-bot)
 
 Credits:
@@ -91,7 +93,7 @@ B. Add a Cortana channel to the Bot Registration.
 
 This section describes how to add a Azure Bot Channels and bind it with the Node.js service.
 
-- [Create your bot channels registration](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration):
+[Create your bot channels registration](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration):
 
 Creates a bot channel that exposes the App Service as an Azure Bot Service. From Azure Portal at https://portal.azure.com:
   1. Create a resource, select `Bot Channels Registration`. Create a bot registration like `iss-cortana-bot-dev`
@@ -99,7 +101,7 @@ Creates a bot channel that exposes the App Service as an Azure Bot Service. From
   3. Enter the App Service's bot url (the one that ends with /api/messages).
   4. Create a new Microsoft App ID and Password, save it somewhere for the next section.
 
-- [Update your bot’s Application Settings](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration):
+[Update your bot’s Application Settings](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration):
 
 Next, update *Azure App Services* with the bot channel's App ID and Password. From Azure Portal at https://portal.azure.com:
   1. Click `App Services` and select the app service that was created (e.g. `iss-cortana-dev`)
