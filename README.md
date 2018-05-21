@@ -1,7 +1,7 @@
 # ISS Cortana Bot
 Simple Cortana bot in Node.js for Institute of Systems Science, National University of Singapore
 
-![overview](assets/bot-overview.png)
+<img src='assets/bot-overview.png'/>
 
 [![Build Status](https://travis-ci.com/lisaong/iss-cortana-bot.svg?branch=master)](https://travis-ci.com/lisaong/iss-cortana-bot)
 
