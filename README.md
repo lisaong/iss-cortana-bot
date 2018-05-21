@@ -1,6 +1,8 @@
 # ISS Cortana Bot
 Simple Cortana bot in Node.js for Institute of Systems Science, National University of Singapore
 
+https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-RollerSkill
+
 ## Install
 ```
 npm install
@@ -23,8 +25,12 @@ npm start
 
 Instructions below are for Azure, but this app is deployable on other systems / cloud providers (it only uses Azure for hosting purposes).
 
-### Azure Git Deployment
+### Azure Deployment
 
+#### One-click Git Deployment
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
+#### Manual Git Deployment
 The commands below should be run from Azure Cloud Shell.
 
 Good references:
@@ -99,5 +105,6 @@ Testing the bot:
 
 #### B. Adding the Cortana channel
 
-https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-cortana?view=azure-bot-service-3.0
+https://docs.microsoft.com/en-us/cortana/skills/get-started
 
+https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-cortana?view=azure-bot-service-3.0
