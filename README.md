@@ -30,6 +30,11 @@ Instructions below are for Azure, but this app is deployable on other systems / 
 #### One-click Git Deployment
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
+Notes
+- The values for MicrosoftAppId and MicrosoftAppPassword will need to be updated when you add Bot Channels Registration.
+- If you see an error during deployment, check Azure Portal. The service could be created but maybe the Free Deployment Plan is not available. You may have to select a different Deployment Plan.
+
+
 #### Manual Git Deployment
 The commands below should be run from Azure Cloud Shell.
 
