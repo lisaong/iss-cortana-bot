@@ -1,7 +1,10 @@
-// https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0
-// https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-cortana?view=azure-bot-service-3.0
+// Reference: https://github.com/Microsoft/BotBuilder-Samples
+
+require('dotenv').config()
+
 var builder = require('botbuilder');
 var restify = require('restify');
+var ssml = require('./src/ssml');
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -18,7 +21,32 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
-// Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
+// Create the bot
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("You said: %s", session.message.text);
+    // Redirect to help if the user's utterance is not recognized
+    session.replaceDialog('HelpDialog');
 });
+
+/**
+ * Every bot should have a help dialog. Ours will use a card with some buttons
+ * to educate the user with the options available to them.
+ */
+bot.dialog('HelpDialog', function (session) {
+    var card = new builder.HeroCard(session)
+        .title('help_title')
+        .buttons([
+            builder.CardAction.imBack(session, 'roll some dice', 'Roll Dice'),
+            builder.CardAction.imBack(session, 'play craps', 'Play Craps')
+        ]);
+    var msg = new builder.Message(session)
+        .speak(speak(session, 'help_ssml'))
+        .addAttachment(card)
+        .inputHint(builder.InputHint.acceptingInput);
+    session.send(msg).endDialog();
+}).triggerAction({ matches: /help/i });
+
+/** Helper function to wrap SSML stored in the prompts file with <speak/> tag. */
+function speak(session, prompt) {
+    var localized = session.gettext(prompt);
+    return ssml.speak(localized);
+}

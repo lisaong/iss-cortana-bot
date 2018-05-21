@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "ISS Cortana Skill",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lisaong/iss-cortana-bot.git"
+  },
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
