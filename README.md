@@ -19,11 +19,11 @@ MicrosoftAppPassword=ACTUAL_VALUE_HERE
 npm start
 ```
 
-## Deploy
+## Node.js Deployment
 
 Instructions below are for Azure, but this app is deployable on other systems / cloud providers (it only uses Azure for hosting purposes).
 
-### Azure
+### Azure Git Deployment
 
 The commands below should be run from Azure Cloud Shell.
 
@@ -63,24 +63,41 @@ The bot should now be available at https://your_app_name.azurewebsites.net/api/m
 {"code":"MethodNotAllowed","message":"GET is not allowed"}
 ```
 
-7. Create a Bot Channels Registration
+To use the bot for chats and Cortana, we'll need to add a Bot Channel for it and connect it to the App Service.
 
-To use the bot for chats, we'll need to add a Bot Channel for it and connect it to the App Service.
+## Cortana Skills Bot
+
+Note: This part requires Azure. 
+
+To enable the bot for Cortana, you need to two steps:
+A. Create an Azure Bot Channels Registration, pointing it to the URL for your Node.js deployment
+B. Add a Cortana channel to the Bot Registration.
+
+#### A. Creating a Bot Channels Registration
+
+This section describes how to add a Azure Bot Channels and bind it with the Node.js service.
 
 - [Create your bot channels registration](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration):
 
-This part creates a bot channel that exposes the App Service as an Azure Bot Service. From Azure Portal at https://portal.azure.com:
+Creates a bot channel that exposes the App Service as an Azure Bot Service. From Azure Portal at https://portal.azure.com:
   1. Create a resource, select `Bot Channels Registration`. Create a bot registration like `iss-cortana-bot-dev`
   2. Use the same resource group as the App Service
-  3. Enter the App Service's bot url (the one that ends with /api/messages)
+  3. Enter the App Service's bot url (the one that ends with /api/messages).
   4. Create a new Microsoft App ID and Password, save it somewhere for the next section.
 
 - [Update your bot’s Application Settings](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-3.0#create-your-bot-channels-registration):
 
-This part updates App Services with the bot channel's App ID and Password. From Azure Portal at https://portal.azure.com:
+Next, update *Azure App Services* with the bot channel's App ID and Password. From Azure Portal at https://portal.azure.com:
   1. Click `App Services` and select the app service that was created (e.g. `iss-cortana-dev`)
   2. Click `Application Settings` within the App Service. Add a setting for `MicrosoftAppId` with the ID generated for `iss-cortana-bot-dev`. Repeat for `MicrosoftAppPassword` with the password.
+
+Note: if you are using a different hosting provider, you can set the environment variables by creating a `.env` file.
 
 Testing the bot:
   1. Open the Bot Registration for `iss-cortana-bot-dev`
   2. Select `Test in Web Chat`
+
+#### B. Adding the Cortana channel
+
+https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-cortana?view=azure-bot-service-3.0
+
