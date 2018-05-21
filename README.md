@@ -18,3 +18,43 @@ MicrosoftAppPassword=ACTUAL_VALUE_HERE
 ```
 npm start
 ```
+
+## Deploy
+
+Instructions below are for Azure, but this app is deployable on other systems / cloud providers (it only uses Azure for hosting purposes).
+
+### Azure
+
+The commands below should be run from Azure Cloud Shell.
+
+Good references:
+- https://docs.microsoft.com/en-us/azure/app-service/scripts/app-service-cli-scale-high-availability
+- https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git
+
+1. Create the deployment user. Note down the username and password for deployment later.
+```
+az webapp deployment user set --user-name <username> --password <password>
+```
+
+2. Create an Azure App Service Plan from Azure Portal, or use `az appservice plan create` from Azure Cloud Shell. Let's call it `iss-cortana-dev` for example.
+
+3. Create a Resource Group from Azure Portal or use `az group create`. Let's call it `iss-cortana-dev` for example.
+
+4. Create the git-enabled app, replacing your_app_name with your own app name.
+```
+az webapp create --name your_app_name --resource-group iss-cortana-dev --plan iss-cortana-dev --runtime "node|8.1" --deployment-local-git
+```
+
+Save the output somewhere for future reference.
+
+5. Copy the `deploymentLocalGitUrl` output and add an Azure remote from your *local command line* (note: *not* Azure Cloud Shell)
+```
+git remote add azure <deploymentLocalGitUrl>
+```
+
+6. From your *local command line", push to azure, using the username and password from step 1 when prompted.
+```
+git push azure master
+```
+
+The bot should now be available at http://your_app_name.azurewebsites.net:3978
