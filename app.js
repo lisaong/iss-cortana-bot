@@ -30,13 +30,15 @@ var bot = new builder.UniversalBot(connector, function (session) {
 /**
  * Every bot should have a help dialog. Ours will use a card with some buttons
  * to educate the user with the options available to them.
+ * 
+ * https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.cardaction.html#imback
  */
 bot.dialog('HelpDialog', function (session) {
     var card = new builder.HeroCard(session)
         .title('help_title')
         .buttons([
-            builder.CardAction.imBack(session, 'roll some dice', 'Roll Dice'),
-            builder.CardAction.imBack(session, 'play craps', 'Play Craps')
+            builder.CardAction.imBack(session, 'what are the courses on Agile?', 'Courses'),
+            builder.CardAction.imBack(session, 'where is the City Hall meeting room?', 'Directions')
         ]);
     var msg = new builder.Message(session)
         .speak(speak(session, 'help_ssml'))
