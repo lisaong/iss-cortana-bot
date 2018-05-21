@@ -1,4 +1,6 @@
 {
     "help_title": "Sample Questions",
-    "help_ssml": "I'm LISSa, the ISS bot. You can ask me questions like 'What are the courses on Agile?' or 'Where is the City Hall meeting room?"
+    "help_ssml": "I'm LISSa, the ISS bot. You can ask me questions like 'What are the courses on Agile?' or 'Where is the City Hall meeting room?",
+    "directions_ssml" : "Take the elevator to the %s floor. Then %s.",
+    "courses_ssml" : "Here are some courses on %s."
 }

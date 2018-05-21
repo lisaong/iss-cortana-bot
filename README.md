@@ -140,3 +140,13 @@ ngrok http 3978 -host-header="localhost:3978"
 3. On Azure Portal, update `Bot Channels Registration` to use the ngrok.io URL. Something like `https://0d6c4024.ngrok.io/api/messages`
 4. Now requests to the Cortana channel will redirect to your localhost Node.js instance.
 
+## Documentation
+
+### Bot Builder Node.js
+- BotBuilder: https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html
+- Examples: https://github.com/Microsoft/BotBuilder/tree/master/Node/examples
+
+### Cortana Channel
+- Inspector: https://docs.botframework.com/en-us/channel-inspector/channels/Cortana/
+- Cards: https://docs.microsoft.com/en-us/cortana/skills/cards
+- Adaptive Cards: http://adaptivecards.io/visualizer/index.html?hostApp=Cortana%20Skills
