@@ -57,4 +57,12 @@ git remote add azure <deploymentLocalGitUrl>
 git push azure master
 ```
 
-The bot should now be available at http://your_app_name.azurewebsites.net:3978
+The bot should now be available at https://your_app_name.azurewebsites.net/api/messages. If you access this URL from the browser, you should see something like:
+
+```
+{"code":"MethodNotAllowed","message":"GET is not allowed"}
+```
+
+7. Create a Bot Channels Registration To use the bot for chats, we'll need to add a Bot Channel for it.
+
+Follow instructions here: https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-3.0
