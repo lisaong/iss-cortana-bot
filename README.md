@@ -3,6 +3,8 @@ Simple Cortana bot in Node.js for Institute of Systems Science, National Univers
 
 https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-RollerSkill
 
+[![Build Status](https://travis-ci.com/lisaong/iss-cortana-bot.svg?branch=master)](https://travis-ci.com/lisaong/iss-cortana-bot)
+
 ## Install
 ```
 npm install
