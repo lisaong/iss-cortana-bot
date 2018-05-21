@@ -24,7 +24,8 @@ server.post('/api/messages', connector.listen());
 // Create the bot
 var bot = new builder.UniversalBot(connector, function (session) {
     // Redirect to help if the user's utterance is not recognized
-    session.replaceDialog('HelpDialog');
+    // session.replaceDialog('HelpDialog');
+    session.replaceDialog('CourseDialog');
 });
 
 /**
@@ -35,8 +36,8 @@ bot.dialog('HelpDialog', function (session) {
     var card = new builder.HeroCard(session)
         .title('help_title')
         .buttons([
-            builder.CardAction.imBack(session, 'what are the courses on Agile?', 'Courses'),
-            builder.CardAction.imBack(session, 'where is the City Hall meeting room?', 'Directions')
+            builder.CardAction.imBack(session, 'Courses', 'what are the courses on Agile?'),
+            builder.CardAction.imBack(session, 'Directions', 'where is the City Hall meeting room?')
         ]);
     var msg = new builder.Message(session)
         .speak(speak(session, 'help_ssml'))
@@ -55,40 +56,24 @@ bot.dialog('CoursesDialog', function (session) {
     // TODO: extract the query string
     // TODO: perform the query
 
-    // Reference: https://github.com/Microsoft/BotBuilder/blob/master/Node/examples/demo-facebook/app.js
     var cards = [
         new builder.HeroCard(session)
-        .title("Space Needle")
-        .subtitle("The Space Needle is an observation tower in Seattle, Washington, a landmark of the Pacific Northwest, and an icon of Seattle.")
-        .images([
-            builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
-                .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/800px-Seattlenighttimequeenanne.jpg")),
-        ])
-        .buttons([
-            builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle", "Wikipedia"),
-            builder.CardAction.imBack(session, "select:100", "Select")
-        ]),
-        new builder.HeroCard(session)
-            .title("Pikes Place Market")
-            .subtitle("Pike Place Market is a public market overlooking the Elliott Bay waterfront in Seattle, Washington, United States.")
-            .images([
-                builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
-                    .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
-            ])
+            .title("NICF- Certified ScrumMaster")
+            .subtitle("30 May 2018 to 01 Jun 2018, 9:00am - 5:00pm")
             .buttons([
-                builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Pike_Place_Market", "Wikipedia"),
-                builder.CardAction.imBack(session, "select:101", "Select")
+                builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--certified-scrummaster/agile", "Find out more"),
             ]),
         new builder.HeroCard(session)
-            .title("EMP Museum")
-            .subtitle("EMP Musem is a leading-edge nonprofit museum, dedicated to the ideas and risk-taking that fuel contemporary popular culture.")
-            .images([
-                builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Night_Exterior_EMP.jpg/320px-Night_Exterior_EMP.jpg")
-                    .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Night_Exterior_EMP.jpg/800px-Night_Exterior_EMP.jpg"))
-            ])
+            .title("NICF- Agile Testing")
+            .subtitle("27 Jun 2018 to 29 Jun 2018, 9:00am - 5:00pm")
             .buttons([
-                builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/EMP_Museum", "Wikipedia"),
-                builder.CardAction.imBack(session, "select:102", "Select")
+                builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--agile-testing/agile", "Find out more"),
+            ]),
+        new builder.HeroCard(session)
+            .title("NICF- Essential Practices for Agile Teams")
+            .subtitle("16 Jul 2018 to 18 Jul 2018, 9:00am - 5:00pm")
+            .buttons([
+                builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--essential-practices-for-agile-teams/agile", "Find out more"),
             ])
         ]
 
@@ -96,6 +81,8 @@ bot.dialog('CoursesDialog', function (session) {
         .speak(speak(session, prompt, ['agile']))
         .attachmentLayout(builder.AttachmentLayout.carousel)
         .attachments(cards)
+        .inputHint(builder.InputHint.acceptingInput);
+
     session.send(msg).endDialog();
 
 }).triggerAction({ matches: /courses/i });
