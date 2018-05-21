@@ -1,12 +1,12 @@
 # ISS Cortana Bot
 Simple Cortana bot in Node.js for Institute of Systems Science, National University of Singapore
 
-# Install
+## Install
 ```
 npm install
 ```
 
-# Run
+## Run
 
 1. Create a file called `.env` with the following set:
 ```
