@@ -3,5 +3,5 @@
     "help_ssml": "I'm LISSa, the ISS bot. You can ask me questions like 'What are the courses on Agile?' or 'Directions to City Hall meeting room?",
     "directions_ssml" : "Take the elevator to the %s floor. Then %s.",
     "courses_ssml" : "Here are some courses on %s.",
-    "closing_ssml": "Thank you, enjoy your visit to ISS. Goodbye."
+    "closing_ssml": "Goodbye, enjoy your visit to ISS."
 }
