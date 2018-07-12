@@ -106,6 +106,7 @@ bot.dialog('DirectionsDialog', function (session) {
 
     var msg = new builder.Message(session)
         .speak(speak(session, 'directions_ssml', ['third', 'turn left']))
+        .attachmentLayout(builder.AttachmentLayout.list)
         .attachments(cards)
         .inputHint(builder.InputHint.acceptingInput);
 
