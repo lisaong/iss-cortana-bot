@@ -36,8 +36,8 @@ bot.dialog('HelpDialog', function (session) {
     var card = new builder.HeroCard(session)
         .title('help_title')
         .buttons([
-            builder.CardAction.imBack(session, 'Courses', 'what are the courses on Agile?'),
-            builder.CardAction.imBack(session, 'Directions', 'where is the City Hall meeting room?')
+            builder.CardAction.imBack(session, 'Courses', 'What are the courses on Agile?'),
+            builder.CardAction.imBack(session, 'Directions', 'Directions to City Hall meeting room?')
         ]);
     var msg = new builder.Message(session)
         .speak(speak(session, 'help_ssml'))
@@ -100,7 +100,10 @@ bot.dialog('DirectionsDialog', function (session) {
             .subtitle('Take elevator to 3rd floor, turn left')
             .image(builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/iss_cityhall.jpg'))
             .media([
-                { url: 'https://media.giphy.com/media/101FTJFnTnNi5W/giphy.gif' }
+                { 
+                    profile: "image/gif",
+                    url: 'https://media.giphy.com/media/101FTJFnTnNi5W/giphy.gif'
+                }
             ])
     ];
 
