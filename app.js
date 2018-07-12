@@ -110,6 +110,29 @@ bot.dialog('DirectionsDialog', function (session) {
 
 }).triggerAction({ matches: [/directions/i, /where/i, /how to (get|go) to/i] });
 
+/**
+ * Closing dialog
+ * 
+ * Thanks visitor 
+ */
+bot.dialog('ClosingDialog', function (session) {
+
+    var card = new builder.HeroCard(session)
+            .title("Thank you")
+            .images([
+                builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/learningday2018_header.jpg')
+            ]);
+
+    var msg = new builder.Message(session)
+        .speak(speak(session, 'closing_ssml'))
+        .addAttachment(card)
+        .inputHint(builder.InputHint.ignoringInput);
+
+    session.send(msg).endDialog();
+
+}).triggerAction({ matches: [/thank/i, /bye/i] });
+
+
 /** Helper function to wrap SSML stored in the prompts file with <speak/> tag. */
 function speak(session, prompt) {
     var localized = session.gettext(prompt);
