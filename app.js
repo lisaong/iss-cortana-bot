@@ -94,29 +94,17 @@ bot.dialog('CoursesDialog', function (session) {
  */
 bot.dialog('DirectionsDialog', function (session) {
 
-    var card =  new builder.AnimationCard(session)
-            .title('Microsoft Bot Framework')
-            .subtitle('Animation Card')
-            .image(builder.CardImage.create(session, 'https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png'))
-            .media([
-                { url: 'http://i.giphy.com/Ki55RUbOV5njy.gif' }
-            ])
-        /*
-        new builder.AnimationCard(session)
-            .title('Directions to City Hall')
-            .subtitle('Take elevator to 3rd floor, turn left')
-            .image(builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/iss_cityhall.jpg'))
-            .media([
-                {
-                    profile: "image/gif",
-                    url: 'https://media.giphy.com/media/101FTJFnTnNi5W/giphy.gif'
-                }
-            ])*/
+    var card = new builder.HeroCard(session)
+            .title("NICF- Certified ScrumMaster")
+            .subtitle("29 Oct 2018 to 31 Oct 2018, 9:00am - 5:00pm")
+            .images([
+                builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/iss_cityhall.jpg')
+            ]);
 
     var msg = new builder.Message(session)
         .speak(speak(session, 'directions_ssml', ['third', 'turn left']))
-        .inputHint(builder.InputHint.acceptingInput);
-    msg.addAttachment(card)
+        .addAttachment(card)
+        .inputHint(builder.InputHint.expectingInput);
 
     session.send(msg).endDialog();
 
