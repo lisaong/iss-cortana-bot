@@ -42,7 +42,7 @@ bot.dialog('HelpDialog', function (session) {
     var msg = new builder.Message(session)
         .speak(speak(session, 'help_ssml'))
         .addAttachment(card)
-        .inputHint(builder.InputHint.acceptingInput);
+        .inputHint(builder.InputHint.expectingInput);
     session.send(msg).endDialog();
 }).triggerAction({ matches: /help/i });
 
