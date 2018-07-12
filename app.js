@@ -95,8 +95,8 @@ bot.dialog('CoursesDialog', function (session) {
 bot.dialog('DirectionsDialog', function (session) {
 
     var card = new builder.HeroCard(session)
-            .title("NICF- Certified ScrumMaster")
-            .subtitle("29 Oct 2018 to 31 Oct 2018, 9:00am - 5:00pm")
+            .title("City Hall Meeting Room")
+            .subtitle("Elevator 3rd floor, turn left")
             .images([
                 builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/iss_cityhall.jpg')
             ]);
