@@ -37,7 +37,7 @@ bot.dialog('HelpDialog', function (session) {
         .title('help_title')
         .buttons([
             builder.CardAction.imBack(session, 'Courses', 'What are the courses on Agile?'),
-            builder.CardAction.imBack(session, 'Directions', 'Directions to City Hall meeting room?')
+            builder.CardAction.imBack(session, 'Directions', 'Where is the City Hall meeting room?')
         ]);
     var msg = new builder.Message(session)
         .speak(speak(session, 'help_ssml'))
@@ -108,7 +108,7 @@ bot.dialog('DirectionsDialog', function (session) {
 
     session.send(msg).endDialog();
 
-}).triggerAction({ matches: /directions/i });
+}).triggerAction({ matches: [/directions/i, /where/i, /how to (get|go) to/i] });
 
 /** Helper function to wrap SSML stored in the prompts file with <speak/> tag. */
 function speak(session, prompt) {
