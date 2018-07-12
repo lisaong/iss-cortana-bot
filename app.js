@@ -94,8 +94,7 @@ bot.dialog('CoursesDialog', function (session) {
  */
 bot.dialog('DirectionsDialog', function (session) {
 
-    var cards = [
-        new builder.AnimationCard(session)
+    var card =  new builder.AnimationCard(session)
             .title('Microsoft Bot Framework')
             .subtitle('Animation Card')
             .image(builder.CardImage.create(session, 'https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png'))
@@ -113,13 +112,11 @@ bot.dialog('DirectionsDialog', function (session) {
                     url: 'https://media.giphy.com/media/101FTJFnTnNi5W/giphy.gif'
                 }
             ])*/
-    ];
 
     var msg = new builder.Message(session)
         .speak(speak(session, 'directions_ssml', ['third', 'turn left']))
-        .attachmentLayout(builder.AttachmentLayout.list)
-        .attachments(cards)
         .inputHint(builder.InputHint.acceptingInput);
+    msg.addAttachment(card)
 
     session.send(msg).endDialog();
 
