@@ -96,15 +96,23 @@ bot.dialog('DirectionsDialog', function (session) {
 
     var cards = [
         new builder.AnimationCard(session)
+            .title('Microsoft Bot Framework')
+            .subtitle('Animation Card')
+            .image(builder.CardImage.create(session, 'https://docs.microsoft.com/en-us/bot-framework/media/how-it-works/architecture-resize.png'))
+            .media([
+                { url: 'http://i.giphy.com/Ki55RUbOV5njy.gif' }
+            ])
+        /*
+        new builder.AnimationCard(session)
             .title('Directions to City Hall')
             .subtitle('Take elevator to 3rd floor, turn left')
             .image(builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/iss_cityhall.jpg'))
             .media([
-                { 
+                {
                     profile: "image/gif",
                     url: 'https://media.giphy.com/media/101FTJFnTnNi5W/giphy.gif'
                 }
-            ])
+            ])*/
     ];
 
     var msg = new builder.Message(session)
