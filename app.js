@@ -24,8 +24,8 @@ server.post('/api/messages', connector.listen());
 // Create the bot
 var bot = new builder.UniversalBot(connector, function (session) {
     // Redirect to help if the user's utterance is not recognized
-    // session.replaceDialog('HelpDialog');
-    session.replaceDialog('CoursesDialog');
+    session.replaceDialog('HelpDialog');
+    // session.replaceDialog('CoursesDialog');
 });
 
 /**
@@ -59,19 +59,19 @@ bot.dialog('CoursesDialog', function (session) {
     var cards = [
         new builder.HeroCard(session)
             .title("NICF- Certified ScrumMaster")
-            .subtitle("30 May 2018 to 01 Jun 2018, 9:00am - 5:00pm")
+            .subtitle("29 Oct 2018 to 31 Oct 2018, 9:00am - 5:00pm")
             .buttons([
                 builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--certified-scrummaster/agile", "Find out more"),
             ]),
         new builder.HeroCard(session)
             .title("NICF- Agile Testing")
-            .subtitle("27 Jun 2018 to 29 Jun 2018, 9:00am - 5:00pm")
+            .subtitle("26 Sep 2018 to 28 Jun 2018, 9:00am - 5:00pm")
             .buttons([
                 builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--agile-testing/agile", "Find out more"),
             ]),
         new builder.HeroCard(session)
             .title("NICF- Essential Practices for Agile Teams")
-            .subtitle("16 Jul 2018 to 18 Jul 2018, 9:00am - 5:00pm")
+            .subtitle("17 Oct 2018 to 19 Oct 2018, 9:00am - 5:00pm")
             .buttons([
                 builder.CardAction.openUrl(session, "https://www.iss.nus.edu.sg/executive-education/course/detail/nicf--essential-practices-for-agile-teams/agile", "Find out more"),
             ])
