@@ -81,7 +81,7 @@ bot.dialog('CoursesDialog', function (session) {
         .speak(speak(session, 'courses_ssml', ['agile']))
         .attachmentLayout(builder.AttachmentLayout.carousel)
         .attachments(cards)
-        .inputHint(builder.InputHint.acceptingInput);
+        .inputHint(builder.InputHint.expectingInput);
 
     session.send(msg).endDialog();
 
@@ -93,6 +93,23 @@ bot.dialog('CoursesDialog', function (session) {
  * Returns directions to rooms, etc
  */
 bot.dialog('DirectionsDialog', function (session) {
+
+    var cards = [
+        new builder.AnimationCard(session)
+            .title('Directions to City Hall')
+            .subtitle('Take elevator to 3rd floor, turn left')
+            .image(builder.CardImage.create(session, 'https://github.com/lisaong/iss-cortana-bot/raw/master/assets/iss_cityhall.jpg'))
+            .media([
+                { url: 'https://media.giphy.com/media/101FTJFnTnNi5W/giphy.gif' }
+            ])
+    ];
+
+    var msg = new builder.Message(session)
+        .speak(speak(session, 'directions_ssml', ['third', 'turn left']))
+        .attachments(cards)
+        .inputHint(builder.InputHint.acceptingInput);
+
+    session.send(msg).endDialog();
 
 }).triggerAction({ matches: /directions/i });
 
