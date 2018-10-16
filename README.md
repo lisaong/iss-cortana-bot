@@ -8,6 +8,9 @@ Simple Cortana bot in Node.js for Institute of Systems Science, National Univers
 Credits:
 - https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-RollerSkill
 
+## Learning Day 2018 slides
+[Slides](https://drive.google.com/file/d/1AXV0gsNLUsVCX8mj2UffVL3wouKV1Jca/view?usp=sharing)
+
 ## Install
 ```
 npm install
